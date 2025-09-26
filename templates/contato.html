@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 text-center">Entre em Contato</h1>
+                <p class="lead text-center">Solicite um orçamento ou tire suas dúvidas</p>
+                
+                <form method="POST" class="mt-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nome" class="form-label">Nome completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone/WhatsApp</label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="servico" class="form-label">Serviço de interesse</label>
+                        <select class="form-select" id="servico" name="servico">
+                            <option value="">Selecione um serviço</option>
+                            {% for servico in servicos %}
+                            <option value="{{ servico.nome }}">{{ servico.nome }}</option>
+                            {% endfor %}
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" placeholder="Descreva brevemente o problema ou sua necessidade..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-md-4 text-center">
+                <i class="bi bi-telephone display-4 text-primary"></i>
+                <h4>Telefone</h4>
+                <p>(11) 99999-9999</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-envelope display-4 text-primary"></i>
+                <h4>E-mail</h4>
+                <p>contato@techsolutions.com</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-whatsapp display-4 text-primary"></i>
+                <h4>WhatsApp</h4>
+                <p>(11) 99999-9999</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

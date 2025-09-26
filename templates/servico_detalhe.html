@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#servicos">Serviços</a></li>
+                        <li class="breadcrumb-item active">{{ servico.nome }}</li>
+                    </ol>
+                </nav>
+                
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <i class="bi {{ servico.icone }} display-1 text-primary"></i>
+                            <h1 class="display-5">{{ servico.nome }}</h1>
+                            <p class="lead text-muted">{{ servico.descricao }}</p>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4>Investimento</h4>
+                                <p class="h3 text-primary">{{ servico.preco }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Tempo Estimado</h4>
+                                <p class="h5">{{ servico.tempo_estimado }}</p>
+                            </div>
+                        </div>
+                        
+                        <h4>O que inclui este serviço?</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            {% if servico.id == 1 %}
+                            <li class="list-group-item">Backup dos seus dados importantes</li>
+                            <li class="list-group-item">Formatação completa do HD/SSD</li>
+                            <li class="list-group-item">Instalação do sistema operacional</li>
+                            <li class="list-group-item">Instalação de todos os drivers</li>
+                            <li class="list-group-item">Instalação de pacote Office e programas essenciais</li>
+                            <li class="list-group-item">Configuração básica do sistema</li>
+                            {% elif servico.id == 2 %}
+                            <li class="list-group-item">Verificação de compatibilidade</li>
+                            <li class="list-group-item">Backup de segurança</li>
+                            <li class="list-group-item">Atualização para a versão mais recente</li>
+                            <li class="list-group-item">Configuração pós-atualização</li>
+                            <li class="list-group-item">Otimização do sistema</li>
+                            {% elif servico.id == 3 %}
+                            <li class="list-group-item">Diagnóstico do equipamento</li>
+                            <li class="list-group-item">Recomendação de melhorias</li>
+                            <li class="list-group-item">Instalação do componente</li>
+                            <li class="list-group-item">Testes de desempenho</li>
+                            <li class="list-group-item">Garantia na instalação</li>
+                            {% elif servico.id == 4 %}
+                            <li class="list-group-item">Limpeza interna completa</li>
+                            <li class="list-group-item">Aplicação de pasta térmica nova</li>
+                            <li class="list-group-item">Verificação de componentes</li>
+                            <li class="list-group-item">Lubrificação de ventoinhas</li>
+                            <li class="list-group-item">Testes de temperatura</li>
+                            {% endif %}
+                        </ul>
+                        
+                        <div class="text-center mt-4">
+                            <a href="{{ url_for('contato') }}?servico={{ servico.nome }}" class="btn btn-primary btn-lg">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

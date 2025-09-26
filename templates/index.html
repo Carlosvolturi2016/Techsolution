@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero bg-primary text-white py-5 mt-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold">Seu Notebook como Novo</h1>
+                <p class="lead">Serviços especializados em formatação, atualização e upgrade de notebooks. Deixe seu equipamento rápido e seguro.</p>
+                <a href="#servicos" class="btn btn-light btn-lg mt-3">Conheça Nossos Serviços</a>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='img/Notebook-Dell-Latitude-3490.jpg') }}" alt="Notebook" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col text-center">
+                <h2 class="display-5">Nossos Serviços</h2>
+                <p class="lead">Soluções completas para seu notebook</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for servico in servicos %}
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <i class="bi {{ servico.icone }} display-4 text-primary"></i>
+                        <h5 class="card-title mt-3">{{ servico.nome }}</h5>
+                        <p class="card-text">{{ servico.descricao }}</p>
+                        <p class="fw-bold text-primary">{{ servico.preco }}</p>
+                        <p class="text-muted"><small>{{ servico.tempo_estimado }}</small></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <a href="{{ url_for('servico_detalhe', servico_id=servico.id) }}" class="btn btn-primary w-100">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Por que nos escolher -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col text-center">
+                <h2 class="display-5">Por que Escolher a TechSolutions?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <i class="bi bi-shield-check display-4 text-primary"></i>
+                <h4>Segurança Garantida</h4>
+                <p>Backup de dados e procedimentos seguros para proteger suas informações.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <i class="bi bi-clock-history display-4 text-primary"></i>
+                <h4>Agilidade</h4>
+                <p>Serviços realizados no prazo combinado, com qualidade e eficiência.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <i class="bi bi-award display-4 text-primary"></i>
+                <h4>Qualidade</h4>
+                <p>Utilizamos apenas produtos de alta qualidade e mão de obra especializada.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h2 class="display-6">Pronto para revitalizar seu notebook?</h2>
+        <p class="lead">Entre em contato agora mesmo e solicite um orçamento sem compromisso.</p>
+        <a href="{{ url_for('contato') }}" class="btn btn-light btn-lg">Solicitar Orçamento</a>
+    </div>
+</section>
+{% endblock %}

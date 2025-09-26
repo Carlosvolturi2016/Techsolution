@@ -1,0 +1,28 @@
+/* Estilos personalizados */
+.hero {
+    padding-top: 100px;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+.btn {
+    border-radius: 50px;
+}
+
+.hero img {
+    border-radius: 10px;
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="display-4">Sobre a TechSolutions</h1>
+                <p class="lead">Há mais de 5 anos oferecendo serviços especializados em manutenção de notebooks.</p>
+                <p>Somos uma empresa focada em proporcionar a melhor experiência para nossos clientes, com serviços de qualidade, transparência e garantia.</p>
+                <p>Nossa missão é devolver a performance do seu equipamento, prolongando sua vida útil e garantindo sua satisfação.</p>
+                
+                <h3 class="mt-4">Nossos Valores</h3>
+                <ul>
+                    <li>Qualidade acima de tudo</li>
+                    <li>Transparência no atendimento</li>
+                    <li>Compromisso com prazos</li>
+                    <li>Respeito ao cliente</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='img/sobre.jpg') }}" alt="Sobre nós" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
