@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import os
-from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = 'sua_chave_secreta_aqui'
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-123')
 
 # Dados dos serviços
 servicos = [
@@ -41,13 +40,16 @@ servicos = [
     }
 ]
 
+
 @app.route('/')
 def index():
     return render_template('index.html', servicos=servicos)
 
+
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html')
+
 
 @app.route('/contato', methods=['GET', 'POST'])
 def contato():
@@ -55,14 +57,19 @@ def contato():
         nome = request.form['nome']
         email = request.form['email']
         telefone = request.form['telefone']
-        servico_interesse = request.form['servico']
+        servico_interesse = request.form.get('servico', '')
         mensagem = request.form['mensagem']
-        
-        # Aqui você pode adicionar lógica para salvar o contato ou enviar email
+
+        # Em produção, você pode integrar com email ou banco de dados
+        print(f"Novo contato recebido: {nome}, {email}, {telefone}")
+        print(f"Serviço de interesse: {servico_interesse}")
+        print(f"Mensagem: {mensagem}")
+
         flash('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.', 'success')
         return redirect(url_for('contato'))
-    
+
     return render_template('contato.html', servicos=servicos)
+
 
 @app.route('/servico/<int:servico_id>')
 def servico_detalhe(servico_id):
@@ -73,5 +80,7 @@ def servico_detalhe(servico_id):
         flash('Serviço não encontrado.', 'error')
         return redirect(url_for('index'))
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
