@@ -4,93 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechSolutions - Serviços de Notebook</title>
-    <script>
-        // Redirecionamento automático após 3 segundos
-        setTimeout(function() {
-            window.location.href = "https://techsolution.onrender.com";
-        }, 3000);
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding: 50px;
+        .hero {
+            padding-top: 100px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .container {
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-        h1 {
-            font-size: 2.5em;
+        .card {
+            transition: transform 0.3s;
             margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .loading {
-            font-size: 18px;
-            margin: 20px 0;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
-        .countdown {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffd700;
+        .whatsapp-btn {
+            background: #25D366;
+            border: none;
         }
-        .manual-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #ffd700;
-            color: #333;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .manual-link:hover {
-            background: #ffed4e;
+        .whatsapp-btn:hover {
+            background: #128C7E;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 TechSolutions</h1>
-        <p><strong>Serviços especializados em formatação, atualização e upgrade de notebooks</strong></p>
-        
-        <div class="loading">
-            <p>Redirecionando para nossa aplicação principal...</p>
-            <div class="countdown" id="countdown">3</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="bi bi-laptop"></i> TechSolutions
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
-        <p>Se o redirecionamento não funcionar automaticamente, clique abaixo:</p>
-        <a href="https://techsolution.onrender.com" class="manual-link">👉 Acessar Site Principal</a>
-    </div>
+    </nav>
 
-    <script>
-        // Contagem regressiva visual
-        let countdown = 3;
-        const countdownElement = document.getElementById('countdown');
-        
-        const interval = setInterval(function() {
-            countdown--;
-            countdownElement.textContent = countdown;
+    <!-- Hero Section -->
+    <section id="home" class="hero text-white py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Seu Notebook como Novo</h1>
+                    <p class="lead fs-5">Formatação, atualização e upgrade profissional com garantia e qualidade</p>
+                    <div class="mt-4">
+                        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de um orçamento para meu notebook" 
+                           class="btn btn-success btn-lg whatsapp-btn me-3" target="_blank">
+                           <i class="bi bi-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="#servicos" class="btn btn-outline-light btn-lg">Ver Serviços</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <i class="bi bi-laptop display-1 opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicos" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Nossos Serviços</h2>
+                <p class="lead">Soluções completas para seu notebook</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="card-body p-4">
+                            <i class="bi bi-laptop display-4 text-primary"></i>
+                            <h5 class="mt-3 fw-bold">Formatação Completa</h5>
+                            <p class="text-muted">Formatação com backup, instalação do SO, drivers e programas essenciais</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary fs-4">R$ 120,00</p>
+                                <small class="text-muted">⏱️ 2-3 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="card-body p-4">
+                            <i class="bi bi-arrow-up-circle display-4 text-primary"></i>
+                            <h5 class="mt-3 fw-bold">Atualização SO</h5>
+                            <p class="text-muted">Atualização segura para a versão mais recente do Windows</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary fs-4">R$ 80,00</p>
+                                <small class="text-muted">⏱️ 1-2 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="card-body p-4">
+                            <i class="bi bi-cpu display-4 text-primary"></i>
+                            <h5 class="mt-3 fw-bold">Upgrade Hardware</h5>
+                            <p class="text-muted">SSD, mais memória RAM e outros componentes de qualidade</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary fs-4">A partir de R$ 150,00</p>
+                                <small class="text-muted">⏱️ Variável</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card text-center h-100">
+                        <div class="card-body p-4">
+                            <i class="bi bi-tools display-4 text-primary"></i>
+                            <h5 class="mt-3 fw-bold">Manutenção</h5>
+                            <p class="text-muted">Limpeza interna, pasta térmica nova e verificação completa</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary fs-4">R$ 100,00</p>
+                                <small class="text-muted">⏱️ 1-2 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Entre em Contato</h2>
+                <p class="lead">Solicite um orçamento sem compromisso</p>
+            </div>
             
-            if (countdown <= 0) {
-                clearInterval(interval);
-            }
-        }, 1000);
-        
-        // Redirecionamento de fallback
-        window.onload = function() {
-            setTimeout(function() {
-                window.location.href = "https://techsolution.onrender.com";
-            }, 3000);
-        };
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Seu nome</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">WhatsApp</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Serviço desejado</label>
+                                    <select class="form-select" required>
+                                        <option value="">Selecione um serviço</option>
+                                        <option value="Formatação">Formatação Completa</option>
+                                        <option value="Atualização">Atualização de SO</option>
+                                        <option value="Upgrade">Upgrade de Hardware</option>
+                                        <option value="Manutenção">Manutenção Preventiva</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Descreva seu problema</label>
+                                    <textarea class="form-control" rows="4" placeholder="Ex: Meu notebook está lento, preciso de formatação..." required></textarea>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg w-100" onclick="enviarWhatsApp()">
+                                    <i class="bi bi-whatsapp"></i> Enviar por WhatsApp
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="p-4">
+                        <i class="bi bi-whatsapp display-4 text-success"></i>
+                        <h4 class="mt-3">WhatsApp</h4>
+                        <p class="fs-5">(11) 99999-9999</p>
+                        <a href="https://wa.me/5511999999999" class="btn btn-outline-success" target="_blank">Conversar</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4">
+                        <i class="bi bi-envelope display-4 text-primary"></i>
+                        <h4 class="mt-3">E-mail</h4>
+                        <p class="fs-5">contato@techsolutions.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4">
+                        <i class="bi bi-geo-alt display-4 text-warning"></i>
+                        <h4 class="mt-3">Atendimento</h4>
+                        <p class="fs-5">Segunda a Sexta<br>9h às 18h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 TechSolutions. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function enviarWhatsApp() {
+            const nome = document.querySelector('input[type="text"]').value;
+            const telefone = document.querySelector('input[type="tel"]').value;
+            const servico = document.querySelector('select').value;
+            const problema = document.querySelector('textarea').value;
+            
+            const mensagem = `Olá! Me chamo ${nome}. Gostaria de um orçamento para:\n\nServiço: ${servico}\nProblema: ${problema}\n\nTelefone: ${telefone}`;
+            
+            const urlWhatsApp = `https://wa.me/5511999999999?text=${encodeURIComponent(mensagem)}`;
+            window.open(urlWhatsApp, '_blank');
+        }
     </script>
 </body>
 </html>
